@@ -9,7 +9,11 @@ const postRouter = require('./routes/post-route');
 mongoose.set('strictQuery', true);
 app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 app.use(express.json({ limit: '50mb' }));
-app.use(cors());
+app.use(
+  cors({
+    origin: '*',
+  })
+);
 app.use('/user', userRouter);
 app.use('/posts', postRouter);
 
